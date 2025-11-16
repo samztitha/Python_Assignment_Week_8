@@ -1,9 +1,9 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# ----------------------------------------
+
 # 1. LOAD AND INSPECT DATA
-# ----------------------------------------
+
 
 # Loading the dataset
 data = pd.read_csv("advertising.csv")
@@ -17,9 +17,9 @@ print(data.dtypes)
 print("\nMissing Values:")
 print(data.isnull().sum())
 
-# ----------------------------------------
+
 # 2. DATA CLEANING
-# ----------------------------------------
+
 
 # Converting only specific columns to numeric
 cols_to_convert = ["TV", "Radio", "Newspaper", "Sales"]
@@ -42,9 +42,9 @@ data["Product"] = "Product A"
 print("\nAfter Cleaning:")
 print(data.head())
 
-# ----------------------------------------
+
 # 3. DESCRIPTIVE STATISTICS
-# ----------------------------------------
+-
 
 # a. Total revenue per product
 total_revenue = data.groupby("Product")["Revenue"].sum()
@@ -61,9 +61,9 @@ best_week = data.loc[data["Units_Sold"].idxmax(), "Week"]
 print("\nWeek with the Highest Units Sold:")
 print(best_week)
 
-# ----------------------------------------
+
 # 4. DATA VISUALIZATION
-# ----------------------------------------
+
 
 # a. Line plot for units sold
 plt.plot(data["Week"], data["Units_Sold"], marker='o', color='blue')
@@ -91,9 +91,8 @@ plt.ylabel("Units Sold")
 plt.grid(True)
 plt.show()
 
-# ----------------------------------------
 # 5. DATA ANALYSIS
-# ----------------------------------------
+
 
 # a. Correlation
 correlation = data["Marketing_Spend"].corr(data["Units_Sold"])
